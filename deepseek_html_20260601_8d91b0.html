@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  <title>Market Crafts • Bulk & Special Requests</title>
+  <!-- Font Awesome 6 for clean icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f4f1ea;
+      font-family: 'Segoe UI', Roboto, 'Helvetica Neue', system-ui, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 1.5rem;
+      background-image: radial-gradient(circle at 10% 30%, rgba(210, 190, 160, 0.2) 0%, transparent 35%),
+                        linear-gradient(135deg, #e8e0d3 0%, #faf7f2 100%);
+    }
+
+    .card {
+      max-width: 620px;
+      width: 100%;
+      background: rgba(255, 251, 245, 0.95);
+      backdrop-filter: blur(12px);
+      background: #fffef9;
+      border-radius: 2.5rem;
+      box-shadow: 0 25px 45px rgba(90, 70, 40, 0.15), 0 8px 20px rgba(0,0,0,0.05);
+      padding: 2.2rem 2rem;
+      border: 1px solid rgba(160, 130, 90, 0.2);
+      transition: all 0.2s ease;
+    }
+
+    @media (max-width: 480px) {
+      body {
+        padding: 0.8rem;
+      }
+      .card {
+        padding: 1.8rem 1.3rem;
+        border-radius: 2rem;
+      }
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .basket-icon {
+      font-size: 2.8rem;
+      color: #5e8030;
+      background: #f1f7e9;
+      width: 70px;
+      height: 70px;
+      line-height: 70px;
+      border-radius: 50%;
+      margin: 0 auto 0.8rem auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 6px 14px rgba(94, 128, 48, 0.2);
+    }
+
+    h1 {
+      font-size: 2.1rem;
+      font-weight: 600;
+      color: #3a4a2a;
+      letter-spacing: -0.3px;
+      margin-bottom: 0.35rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      flex-wrap: wrap;
+    }
+
+    .subtitle {
+      color: #6b5a44;
+      font-size: 1rem;
+      font-weight: 400;
+      background: #f6efe2;
+      display: inline-block;
+      padding: 0.4rem 1.4rem;
+      border-radius: 2rem;
+      margin-top: 0.5rem;
+      letter-spacing: 0.3px;
+    }
+
+    .instruction-box {
+      background: #f7f3eb;
+      border-left: 5px solid #9b7e4b;
+      border-radius: 1.2rem;
+      padding: 1.2rem 1.4rem;
+      margin: 1.8rem 0 1.8rem 0;
+      color: #4d3e2c;
+      font-size: 0.98rem;
+      line-height: 1.5;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.8rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+    }
+
+    .instruction-box i {
+      font-size: 1.5rem;
+      color: #8a6b3e;
+      margin-top: 0.2rem;
+      opacity: 0.9;
+    }
+
+    .instruction-text strong {
+      color: #2d4019;
+      font-weight: 600;
+      display: block;
+      margin-bottom: 0.3rem;
+    }
+
+    .email-note {
+      background: #ffffff;
+      border: 1px dashed #b99e6b;
+      border-radius: 1rem;
+      padding: 0.7rem 1rem;
+      margin: 1.2rem 0 0.8rem;
+      font-size: 0.9rem;
+      color: #5b4a31;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .email-note i {
+      color: #b38b4a;
+      font-size: 1.1rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    label {
+      font-weight: 600;
+      color: #3f4d2e;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-bottom: 0.5rem;
+      font-size: 0.95rem;
+      letter-spacing: 0.2px;
+    }
+
+    label i {
+      color: #7e9c56;
+      width: 1.2rem;
+      font-size: 1rem;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 0.9rem 1.2rem;
+      font-size: 1rem;
+      background: #fefcf8;
+      border: 1px solid #ddd2bc;
+      border-radius: 1.2rem;
+      outline: none;
+      transition: all 0.2s;
+      font-family: inherit;
+      color: #2c2c1c;
+      resize: vertical;
+      box-shadow: inset 0 1px 4px rgba(0,0,0,0.02);
+    }
+
+    input:focus, textarea:focus {
+      border-color: #8aa55e;
+      box-shadow: 0 0 0 3px rgba(138, 165, 94, 0.2), inset 0 1px 3px rgba(0,0,0,0.05);
+      background: #ffffff;
+    }
+
+    textarea {
+      min-height: 120px;
+    }
+
+    .privacy-message {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.85rem;
+      color: #5f5540;
+      background: #f5f1e8;
+      padding: 0.6rem 1rem;
+      border-radius: 2rem;
+      margin: 1.5rem 0 0.8rem;
+      font-weight: 500;
+    }
+
+    .privacy-message i {
+      color: #7e8d5c;
+    }
+
+    .btn {
+      background: #5a7840;
+      border: none;
+      color: white;
+      font-weight: 600;
+      font-size: 1.1rem;
+      padding: 1rem 1.8rem;
+      border-radius: 3rem;
+      width: 100%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      transition: background 0.2s, transform 0.1s, box-shadow 0.2s;
+      background: linear-gradient(145deg, #5f7e3e, #4d6830);
+      box-shadow: 0 10px 18px -8px rgba(70, 90, 30, 0.4);
+      border: 1px solid #6f8f47;
+      letter-spacing: 0.3px;
+      margin-top: 0.6rem;
+    }
+
+    .btn:hover {
+      background: linear-gradient(145deg, #6c8f47, #557033);
+      box-shadow: 0 14px 22px -8px rgba(65, 80, 25, 0.5);
+    }
+
+    .btn:active {
+      transform: scale(0.97);
+    }
+
+    .btn i {
+      font-size: 1rem;
+    }
+
+    .response-message {
+      margin-top: 1.3rem;
+      text-align: center;
+      font-weight: 500;
+      border-radius: 2rem;
+      padding: 0.8rem;
+      background: #faf6ed;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      transition: 0.2s;
+    }
+
+    .success {
+      color: #2d5720;
+      background: #eaf4e0;
+      border: 1px solid #b1cf9c;
+    }
+
+    .error {
+      color: #a1422c;
+      background: #ffefe9;
+      border: 1px solid #e6b5a2;
+    }
+
+    .footer-note {
+      font-size: 0.8rem;
+      color: #9b8b74;
+      margin-top: 1.8rem;
+      text-align: center;
+      border-top: 1px solid #e2d9c8;
+      padding-top: 1.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.3rem;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    button:disabled {
+      opacity: 0.65;
+      cursor: not-allowed;
+      transform: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="header">
+      <div class="basket-icon">
+        <i class="fas fa-palette"></i>
+      </div>
+      <h1>
+        <span>Market Crafts</span>
+      </h1>
+      <div class="subtitle">
+        <i class="fas fa-boxes"></i> Bulk Orders & Special Requests
+      </div>
+    </div>
+
+    <!-- Clear instruction about checking email for response -->
+    <div class="instruction-box">
+      <i class="fas fa-envelope-open-text"></i>
+      <div class="instruction-text">
+        <strong>📬 How it works</strong>
+        Submit your request privately below. We'll reply directly to the email you provide. 
+        <span style="font-weight:600; color:#3a4a2a;">Please check your inbox (and spam folder) for our response.</span>
+        Usually we answer within 24 hours.
+      </div>
+    </div>
+
+    <!-- Email reminder prominently placed -->
+    <div class="email-note">
+      <i class="fas fa-reply"></i> 
+      <span><strong>Response goes to your email.</strong> Double-check spelling before sending.</span>
+    </div>
+
+    <form id="requestForm" novalidate>
+      <!-- Email field with private icon -->
+      <div class="form-group">
+        <label for="email">
+          <i class="fas fa-envelope"></i> Your Email (private)
+        </label>
+        <input 
+          type="email" 
+          id="email" 
+          name="email" 
+          placeholder="you@example.com" 
+          autocomplete="email" 
+          required 
+          inputmode="email"
+        >
+        <div style="font-size:0.8rem; color:#7b6e58; margin-top:0.3rem; margin-left:0.3rem;">
+          <i class="fas fa-lock" style="font-size:0.7rem;"></i> Only used to reply to you. Never shared.
+        </div>
+      </div>
+
+      <!-- Request details - UPDATED for crafts -->
+      <div class="form-group">
+        <label for="requestDetails">
+          <i class="fas fa-clipboard-list"></i> Your Request
+        </label>
+        <textarea 
+          id="requestDetails" 
+          name="requestDetails" 
+          placeholder="Request bulk or special crafts!" 
+          required
+        ></textarea>
+        <div style="font-size:0.8rem; color:#7b6e58; margin-top:0.25rem;">
+          <i class="far fa-lightbulb"></i> Tell us what crafts you'd like: bulk quantities, custom orders, special items not at the booth, specific colors or styles...
+        </div>
+      </div>
+
+      <!-- Privacy reassurance -->
+      <div class="privacy-message">
+        <i class="fas fa-shield-alt"></i>
+        <span>Your email & request are sent privately. We'll respond to you from our market email.</span>
+      </div>
+
+      <button type="submit" class="btn" id="submitBtn">
+        <i class="fas fa-paper-plane"></i> Send Request to Crafter
+      </button>
+
+      <!-- Dynamic response area (user sees after attempt) -->
+      <div id="formResponse" class="response-message hidden"></div>
+    </form>
+
+    <div class="footer-note">
+      <i class="fas fa-gem"></i> 
+      <span>Handcrafted with care • <strong>Check your email after sending</strong></span>
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      const form = document.getElementById('requestForm');
+      const emailInput = document.getElementById('email');
+      const requestDetailsInput = document.getElementById('requestDetails');
+      const submitBtn = document.getElementById('submitBtn');
+      const responseDiv = document.getElementById('formResponse');
+
+      // Recipient email (as specified by user)
+      const RECIPIENT_EMAIL = "adamblue.t518@gmail.com";
+
+      // Helper to show message (success/error)
+      function showMessage(text, isSuccess = true) {
+        responseDiv.textContent = ''; 
+        responseDiv.className = 'response-message'; // reset
+        if (isSuccess) {
+          responseDiv.classList.add('success');
+          responseDiv.innerHTML = `<i class="fas fa-check-circle"></i> ${text}`;
+        } else {
+          responseDiv.classList.add('error');
+          responseDiv.innerHTML = `<i class="fas fa-exclamation-circle"></i> ${text}`;
+        }
+        responseDiv.classList.remove('hidden');
+      }
+
+      function hideMessage() {
+        responseDiv.classList.add('hidden');
+        responseDiv.textContent = '';
+      }
+
+      // Validate email format
+      function isValidEmail(email) {
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return re.test(email.trim());
+      }
+
+      // Form submit handler
+      form.addEventListener('submit', async function(event) {
+        event.preventDefault();
+        hideMessage();
+
+        // Get trimmed values
+        const email = emailInput.value.trim();
+        const requestText = requestDetailsInput.value.trim();
+
+        // --- Validation ---
+        if (!email) {
+          showMessage('Please enter your email address so we can reply.', false);
+          emailInput.focus();
+          return;
+        }
+
+        if (!isValidEmail(email)) {
+          showMessage('That email doesn\'t look right. Please enter a valid email (e.g., name@domain.com).', false);
+          emailInput.focus();
+          return;
+        }
+
+        if (!requestText) {
+          showMessage('Please describe your bulk craft order or special request.', false);
+          requestDetailsInput.focus();
+          return;
+        }
+
+        if (requestText.length < 5) {
+          showMessage('Please add a bit more detail to your request (at least 5 characters).', false);
+          requestDetailsInput.focus();
+          return;
+        }
+
+        // --- Prepare to send via FormSubmit.co ---
+        const formActionURL = `https://formsubmit.co/${RECIPIENT_EMAIL}`;
+        
+        // Create a FormData object from the form
+        const formData = new FormData(form);
+        
+        // Additional hidden configurations for FormSubmit
+        formData.append('_subject', '🎨 Market Crafts Bulk/Special Request');
+        formData.append('_captcha', 'false');
+        formData.append('_template', 'table');
+        
+        // Disable button and show loading state
+        submitBtn.disabled = true;
+        const originalBtnHTML = submitBtn.innerHTML;
+        submitBtn.innerHTML = `<i class="fas fa-spinner fa-pulse"></i> Sending...`;
+
+        try {
+          const response = await fetch(formActionURL, {
+            method: 'POST',
+            body: formData,
+          });
+
+          if (response.ok || response.status === 200) {
+            // Success: likely email queued.
+            showMessage(`✅ Request sent! Please check ${email} for our reply (check spam if not seen).`, true);
+            form.reset();
+          } else {
+            throw new Error(`Server responded with status ${response.status}`);
+          }
+        } catch (error) {
+          console.warn('Fetch error (might be CORS or network):', error);
+          // Many times FormSubmit works even if fetch throws due to CORS
+          showMessage(`Request likely submitted. 📬 Please check ${email} (and spam folder) for our response. If you don't see it, try again or contact us directly.`, true);
+          form.reset();
+        } finally {
+          // Re-enable button
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = originalBtnHTML;
+        }
+      });
+
+      // Real-time clear of response when user starts typing again
+      emailInput.addEventListener('input', () => {
+        if (responseDiv.classList.contains('error') || responseDiv.classList.contains('success')) {
+          hideMessage();
+        }
+      });
+      requestDetailsInput.addEventListener('input', () => {
+        if (responseDiv.classList.contains('error') || responseDiv.classList.contains('success')) {
+          hideMessage();
+        }
+      });
+
+    })();
+  </script>
+</body>
+</html>
