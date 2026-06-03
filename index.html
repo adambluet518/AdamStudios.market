@@ -311,7 +311,7 @@
         <strong>📬 How it works</strong>
         Submit your request privately below. We'll reply directly to the email you provide. 
         <span style="font-weight:600; color:#3a4a2a;">Please check your inbox (and spam folder) for our response.</span>
-        Usually we answer within 24 hours.
+        We aim to respond as soon as possible.
       </div>
     </div>
 
@@ -471,7 +471,7 @@
 
           if (response.ok || response.status === 200) {
             // Success: likely email queued.
-            showMessage(`✅ Request sent! Please check ${email} for our reply (check spam if not seen).`, true);
+            showMessage(`Request sent successfully! We'll reply to the email address you provided.`, true);
             form.reset();
           } else {
             throw new Error(`Server responded with status ${response.status}`);
